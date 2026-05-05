@@ -1,4 +1,3 @@
-// proxy.ts (Next.js 16 compatible)
 import { clerkMiddleware } from '@clerk/nextjs/server';
 
 export const runtime = 'nodejs';
