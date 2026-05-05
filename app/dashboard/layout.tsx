@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useEffect, useState } from "react"
 import { Menu } from "lucide-react"
 import { ToastContainer } from "react-toastify"
@@ -32,8 +31,9 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
   if (!isClient) return null // Avoid hydration mismatch
 
+  // ✅ `<body>` ko `<div>` mein change kiya
   return (
-    <body className="bg-gradient-to-br from-purple-800 to-black text-white overflow-hidden h-screen">
+    <div className="bg-gradient-to-br from-purple-800 to-black text-white overflow-hidden h-screen">
       {/* Mobile-only Navbar */}
       <nav className="md:hidden fixed top-0 left-0 right-0 h-16 bg-black/50 backdrop-blur-md z-40 flex items-center justify-between px-4 border-b border-white/10">
         <button onClick={toggleSidebar} className="p-2 rounded-md hover:bg-white/10" aria-label="Toggle sidebar">
@@ -86,7 +86,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           theme="dark"
         />
       </div>
-    </body>
+    </div>
   )
 }
-

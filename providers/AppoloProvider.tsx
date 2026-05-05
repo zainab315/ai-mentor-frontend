@@ -1,11 +1,16 @@
 "use client";
-import { ApolloClient, InMemoryCache, ApolloProvider as Provider } from "@apollo/client";
-const url = process.env.NEXT_PUBLIC_AI4ALL_SERVER
-const client = new ApolloClient({
+import { ApolloClient, InMemoryCache, ApolloProvider as Provider, createHttpLink } from "@apollo/client";
+
+const url = process.env.NEXT_PUBLIC_AI4ALL_SERVER;
+const httpLink = createHttpLink({
     uri: `${url}graphql`,
+});
+
+const client = new ApolloClient({
+    link: httpLink,
     cache: new InMemoryCache(),
 });
 
-export  function ApolloProvider({ children }: { children: React.ReactNode }) {
+export default function ApolloProvider({ children }: { children: React.ReactNode }) {
     return <Provider client={client}>{children}</Provider>;
 }

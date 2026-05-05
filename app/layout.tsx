@@ -4,10 +4,8 @@ import { Inter } from 'next/font/google'
 import 'react-toastify/dist/ReactToastify.css';  
 import { Toaster } from "@/components/ui/toaster"
 import StoreProvider from '@/providers/StoreProvider'
-import { ApolloProvider } from '@/providers/AppoloProvider'
-import {
-  ClerkProvider
-} from '@clerk/nextjs'
+import ApolloProvider from '@/providers/AppoloProvider'
+import { ClerkProvider } from '@clerk/nextjs'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,23 +21,16 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body className={`${inter.className}`}>
-      <StoreProvider>
-      <ApolloProvider>
-        <div> 
-          <div className="flex-1">
-            <main className="min-h-screen">
-              {children} 
+      <html lang="en" suppressHydrationWarning>
+        <body className={inter.className} suppressHydrationWarning>
+          <StoreProvider>
+            <ApolloProvider>
+              {children}
               <Toaster />
-            </main>
-          </div>
-        </div>
-        </ApolloProvider>
-      </StoreProvider>
-      </body>
-    </html>
+            </ApolloProvider>
+          </StoreProvider>
+        </body>
+      </html>
     </ClerkProvider>
   )
 }
-
