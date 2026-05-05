@@ -1,8 +1,10 @@
-
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
+// 👇 FORCE NODE.JS RUNTIME - This fixes the MIDDLEWARE_INVOCATION_FAILED error
+export const runtime = 'nodejs';
+
 const protectedRoute = createRouteMatcher(['/dashboard(.*)']);
-const publicRoute = createRouteMatcher(['/','/features','/subjects','/pricing','contact']);
+const publicRoute = createRouteMatcher(['/', '/features', '/subjects', '/pricing', '/contact']);
 
 export default clerkMiddleware(async (auth, req) => {
   const { userId, redirectToSignIn } = await auth();
@@ -12,13 +14,13 @@ export default clerkMiddleware(async (auth, req) => {
     return redirectToSignIn();
   }
 
-  // Public routes (like `/meeting`) don't require authentication
+  // Public routes don't require authentication
   return;
 });
 
 export const config = {
   matcher: [
-    '/((?!.+\\.[\\w]+$|_next).*)',
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.[\\w]+$).*)',
     '/',
     '/(api|trpc)(.*)',
   ],
