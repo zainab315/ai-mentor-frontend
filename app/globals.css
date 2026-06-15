@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1a237e;
+  --primary-dark: #0d1b5e;
+  --secondary: #3f51b5;
+  --secondary-dark: #303f9f;
+  --background: #121212;
+  --surface: #1e1e1e;
+  --text: #ffffff;
+  --text-secondary: #b0bec5;
+}
+
+body {
+  @apply bg-gradient-to-br from-purple-800 to-black text-white;
+}
+ /* Markdown styling */
+.markdown-content {
+  @apply text-sm leading-relaxed;
+}
+
+.markdown-content p {
+  @apply mb-4;
+}
+
+.markdown-content h1 {
+  @apply text-2xl font-bold mb-4 mt-6;
+}
+
+.markdown-content h2 {
+  @apply text-xl font-bold mb-3 mt-5;
+}
+
+.markdown-content h3 {
+  @apply text-lg font-bold mb-2 mt-4;
+}
+
+.markdown-content ul {
+  @apply list-disc pl-5 mb-4 space-y-2;
+}
+
+.markdown-content ol {
+  @apply list-decimal pl-5 mb-4 space-y-2;
+}
+
+.markdown-content li {
+  @apply mb-1;
+}
+
+.markdown-content pre {
+  @apply bg-gray-800/50 p-3 rounded-md my-4 overflow-x-auto;
+}
+
+.markdown-content code {
+  @apply font-mono;
+}
+
+.markdown-content p code {
+  @apply bg-gray-800/50 px-1.5 py-0.5 rounded text-sm;
+}
+
+.markdown-content blockquote {
+  @apply border-l-4 border-gray-500 pl-4 italic my-4 text-gray-300;
+}
+
+.markdown-content a {
+  @apply text-blue-400 hover:underline;
+}
+
+.markdown-content table {
+  @apply min-w-full border-collapse my-4;
+}
+
+.markdown-content th {
+  @apply border border-gray-600 px-4 py-2 bg-gray-800/50 font-bold;
+}
+
+.markdown-content td {
+  @apply border border-gray-600 px-4 py-2;
+}
+
+/* Add syntax highlighting */
+.markdown-content .language-javascript,
+.markdown-content .language-js {
+  @apply text-yellow-300;
+}
+
+.markdown-content .language-typescript,
+.markdown-content .language-ts {
+  @apply text-blue-300;
+}
+
+.markdown-content .language-json {
+  @apply text-green-300;
+}
+
+.markdown-content .language-html {
+  @apply text-orange-300;
+}
+
+.markdown-content .language-css {
+  @apply text-pink-300;
+}
+
+
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300;
+  }
+
+  .btn-secondary {
+    @apply bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-500 transition-colors duration-300;
+  }
+
+  .card {
+    @apply bg-gray-800 rounded-lg shadow-md p-6;
+  }
+}
+

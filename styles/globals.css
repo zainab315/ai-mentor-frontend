@@ -1,0 +1,32 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --primary: #4a5af9;
+  --primary-dark: #3a45c7;
+  --secondary: #8a4af9;
+  --secondary-dark: #6a35c7;
+  --background: #f0f4f8;
+  --text: #333333;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300;
+}
+
+.btn-secondary {
+  @apply bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors duration-300;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md p-6;
+}
+
+
